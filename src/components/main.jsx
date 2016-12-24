@@ -1,11 +1,11 @@
 var React = require('react');
 
-var Header = require('./header');
+var FrontPage = require('./frontpage');
 
 module.exports = React.createClass({
   render: function() {
     return <div>
-      <Header />
+      <FrontPage/>
     </div>
   }
 });

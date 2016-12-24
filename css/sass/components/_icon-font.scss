@@ -1,0 +1,33 @@
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'ms-font' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-email:before {
+  content: "\e900";
+}
+.icon-heart:before {
+  content: "\e901";
+}
+.icon-location-pin:before {
+  content: "\e902";
+}
+.icon-spotify-with-circle:before {
+  content: "\e903";
+}
+.icon-github-with-circle:before {
+  content: "\e904";
+}
+.icon-linkedin-with-circle:before {
+  content: "\e905";
+}

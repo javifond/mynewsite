@@ -1,0 +1,51 @@
+// ------------------------------------------------------------------------
+// FrontPage Component
+//
+// Description: This component will show an Avatar, motto, contact icons
+// and location.
+// ------------------------------------------------------------------------
+
+// Variables
+// ------------------------------------------------------------------------
+$motto-font-size: 3*$gutter;
+
+// Block
+// ------------------------------------------------------------------------
+.fp {
+	background-color: $black;
+	color: $white;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	padding: $gutter;
+
+	// Elements
+    // --------------------------------------------------------------------
+    &__avatar {
+    	border-radius: 50%;
+		margin: $half-gutter 0;
+    }
+
+    &__motto {
+    	font-size: $motto-font-size;
+    	font-weight: 900;
+		margin: $half-gutter 0;
+		text-align: center
+    }
+
+    &__contact-buttons {
+    	display: flex;
+    	font-size: $double-gutter;
+    	justify-content: space-around;
+		margin: $half-gutter 0;
+		width: 50%;
+
+		i {
+			color: $white;
+		}
+    }
+
+    &__location {
+		margin: $half-gutter 0;
+    }
+}

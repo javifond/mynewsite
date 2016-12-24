@@ -80,12 +80,12 @@ gulp.task('serve', function (done) {
 gulp.task('sass', function () {
   gulp.src('css/sass/**/*.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(concat('css/prod/style.css'))
+    .pipe(concat('css/dist/style.css'))
     .pipe(gulp.dest('./'));
 });
 
 gulp.task('autoprefixer', function () {
-    gulp.src('css/prod/*.css')
+    gulp.src('css/dist/*.css')
       .pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
       .pipe(gulp.dest('css/dist'));
 });
