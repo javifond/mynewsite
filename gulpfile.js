@@ -1,22 +1,29 @@
-var gulp = require('gulp');
-var gutil = require('gulp-util');
-var source = require('vinyl-source-stream');
-var browserify = require('browserify');
-var watchify = require('watchify');
-var reactify = require('reactify');
-var notifier = require('node-notifier');
-var server = require('gulp-server-livereload');
-var concat = require('gulp-concat');
-var sass = require('gulp-sass');
-var watch = require('gulp-watch');
-var postcss      = require('gulp-postcss');
-var autoprefixer = require('autoprefixer');
-var cssmin = require('gulp-cssmin');
-var rename = require('gulp-rename');
+const fs = require('fs')
+      gulp = require('gulp'),
+      sass = require('gulp-sass'),
+      concat = require('gulp-concat'),
+      del = require('del'),
+      cssnano = require('cssnano'),
+      postcss = require('gulp-postcss'),
+      autoprefixer = require('autoprefixer'),
+      sourcemaps = require('gulp-sourcemaps'),
+      gutil = require('gulp-util'),
+      source = require('vinyl-source-stream'),
+      browserify = require('browserify'),
+      watchify = require('watchify'),
+      reactify = require('reactify'),
+      notifier = require('node-notifier'),
+      watch = require('gulp-watch'),
+      rename = require('gulp-rename');
 
-var notify = function (error) {
-  var message = 'In: ',
-      title = 'Error: ';
+const paths = {
+    sass: './css/sass/**/*.scss'
+};
+
+const notify = function (error) {
+  const message = 'In: ',
+        title = 'Error: ',
+        file;
 
   if (error.description) {
     title += error.description;
@@ -25,7 +32,7 @@ var notify = function (error) {
   }
 
   if (error.filename) {
-    var file = error.filename.split('/');
+    file = error.filename.split('/');
     message += file[file.length-1];
   }
 
@@ -36,7 +43,7 @@ var notify = function (error) {
   notifier.notify({title: title, message: message});
 };
 
-var bundler = watchify(browserify({
+const bundler = watchify(browserify({
   entries: ['./src/app.jsx'],
   transform: [reactify],
   extensions: ['.jsx'],
@@ -51,54 +58,38 @@ function bundle () {
     .bundle()
     .on('error', notify)
     .pipe(source('js/main.js'))
-    .pipe(gulp.dest('./'))
+    .pipe(gulp.dest('./'));
 }
 
-bundler.on('update', bundle)
+bundler.on('update', bundle);
 
 gulp.task('build', function () {
-  bundle()
+  bundle();
 });
 
-gulp.task('serve', function (done) {
-  gulp.src('')
-    .pipe(server({
-      livereload: {
-        enable: true,
-        filter: function(filePath, cb) {
-          if(/main.js/.test(filePath)) {
-            cb(true)
-          } else if(/style.css/.test(filePath)){
-            cb(true)
-          }
-        }
-      },
-      open: true
-    }));
+gulp.task('clean', () => del(['./css/dist/styles.min.css', './css/dist/styles.min.css.map' ]));
+
+gulp.task('sass', () =>
+    gulp.src(paths.sass)
+        .pipe(sourcemaps.init({ loadMaps: true }))
+        .pipe(sass().on('error', sass.logError))
+        .pipe(concat('styles.css'))
+        .pipe(postcss([autoprefixer({ browsers: [
+            'last 2 versions',
+            'Android 4.4',
+            'ie 10-11',
+            'ios_saf 8'
+        ] })], cssnano()))
+        .pipe(rename({ suffix: '.min' }))
+        .pipe(sourcemaps.write('./'))
+        .pipe(gulp.dest('css/dist/'))
+);
+
+gulp.task('watch', () => {
+    gulp.watch(paths.sass, ['clean', 'sass']);
 });
 
-gulp.task('sass', function () {
-  gulp.src('css/sass/**/*.scss')
-    .pipe(sass().on('error', sass.logError))
-    .pipe(concat('css/dist/style.css'))
-    .pipe(gulp.dest('./'));
-});
+gulp.task('default', ['build', 'clean', 'sass']);
 
-gulp.task('autoprefixer', function () {
-    gulp.src('css/dist/*.css')
-      .pipe(postcss([ autoprefixer({ browsers: ['last 2 versions'] }) ]))
-      .pipe(gulp.dest('css/dist'));
-});
+//TODO[JB]: Implement liveReload and modularise tasks into other files.
 
-gulp.task('cssmin', function () {
-  gulp.src('css/dist/*.css')
-    .pipe(cssmin())
-    .pipe(rename({suffix: '.min'}))
-    .pipe(gulp.dest('css/dist'));
-});
-
-gulp.task('default', ['build', 'sass', 'autoprefixer', 'cssmin']);
-
-// gulp.task('watch', function () {
-//   gulp.watch('./sass/**/*.scss', ['sass', 'autoprefixer', 'cssmin']);
-// });
