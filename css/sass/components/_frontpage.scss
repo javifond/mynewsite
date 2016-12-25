@@ -7,13 +7,21 @@
 
 // Variables
 // ------------------------------------------------------------------------
-$motto-font-size: 3*$gutter;
+$bs: 4px;
+
+// Mixin
+// ------------------------------------------------------------------------
+@mixin responsive-font() {
+	font-size: 1.5*$gutter;
+
+	@include breakpoint($breakpoint-medium) {
+		font-size: 3*$gutter;
+	}
+}
 
 // Block
 // ------------------------------------------------------------------------
 .fp {
-	background-color: $black;
-	color: $white;
 	align-items: center;
 	display: flex;
 	flex-direction: column;
@@ -27,10 +35,10 @@ $motto-font-size: 3*$gutter;
     }
 
     &__motto {
-    	font-size: $motto-font-size;
+    	@include responsive-font;
     	font-weight: 900;
 		margin: $half-gutter 0;
-		text-align: center
+		text-align: center;
     }
 
     &__contact-buttons {
@@ -39,10 +47,6 @@ $motto-font-size: 3*$gutter;
     	justify-content: space-around;
 		margin: $half-gutter 0;
 		width: 50%;
-
-		i {
-			color: $white;
-		}
     }
 
     &__location {
