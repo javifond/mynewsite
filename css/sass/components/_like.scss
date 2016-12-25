@@ -1,0 +1,26 @@
+// ------------------------------------------------------------------------
+// I like to Component
+//
+// Description: This component will show several photos of things I
+// like to do.
+// ------------------------------------------------------------------------
+
+// Variables
+// ------------------------------------------------------------------------
+$like-title-font-size: 3em;
+
+// Block
+// ------------------------------------------------------------------------
+.like {
+	padding: $gutter 0;
+
+	// Elements
+	// --------------------------------------------------------------------
+	&__title {
+		color: $my-blue;
+		font-size: $like-title-font-size;
+		font-weight: 900;
+		margin: $half-gutter 0;
+		text-align: center;
+	}
+}

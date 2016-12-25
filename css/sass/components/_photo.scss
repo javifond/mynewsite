@@ -1,0 +1,58 @@
+// ------------------------------------------------------------------------
+// Photo Component
+//
+// Description: This component will show a single photo styled.
+// ------------------------------------------------------------------------
+
+// Variables
+// ------------------------------------------------------------------------
+$photo-title-font-size: 2em;
+
+// Mixins
+// ------------------------------------------------------------------------
+@mixin post-it($rotate, $move) {
+	@include breakpoint($breakpoint-medium) {
+		box-shadow: $bs $bs $bs 0px rgba($black, .75);
+		transform: rotate($rotate) translateX($move);
+	}
+}
+
+// Block
+// ------------------------------------------------------------------------
+.photo {
+	background-color: $white;
+	display: flex;
+	flex-direction: column;
+	padding: $double-gutter;
+	position: relative;
+
+	@include breakpoint($breakpoint-medium) {
+		max-width: 480px;
+		will-change: transform;
+	}
+
+	// Elements
+	// --------------------------------------------------------------------
+	&__title {
+		color: $my-gray;
+		font-size: $photo-title-font-size;
+		font-weight: 900;
+		margin: $half-gutter 0;
+		padding-top: $gutter;
+		text-align: center;
+	}
+	&__img {
+
+	}
+	// Modifiers
+	// --------------------------------------------------------------------
+	&--beer {
+		@include post-it(-2deg, 2*$gutter);
+	}
+	&--travel {
+		@include post-it(6deg, $gutter);
+	}
+	&--food {
+		@include post-it(-4deg, $gutter);
+	}
+}
