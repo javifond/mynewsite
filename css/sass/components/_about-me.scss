@@ -1,0 +1,57 @@
+// ------------------------------------------------------------------------
+// About Me Component
+//
+// Description: This component will show a Title and a description of myself as
+// a professional.
+// ------------------------------------------------------------------------
+
+// Variables
+// ------------------------------------------------------------------------
+$about-me-gutter: 1.5em;
+$about-me-title-font-size: 2em;
+
+// Mixins
+// ------------------------------------------------------------------------
+@mixin responsive-font() {
+	font-size: $gutter;
+
+	@include breakpoint($breakpoint-medium) {
+		font-size: 1.3*$gutter;
+	}
+}
+
+// Block
+// ------------------------------------------------------------------------
+.about-me {
+	@include responsive-font;
+	padding: $double-gutter 0;
+	margin-bottom: $double-gutter;
+
+	@include breakpoint($breakpoint-medium) {
+		background-color: $white;
+		background-image: linear-gradient(to bottom, white 20px, rgba($my-sky-blue, 0.60) 1px);
+		background-size: 100% 21px;
+		box-shadow: $bs $bs $bs 0px rgba($black, .75);
+		transform: rotate(1deg);
+	}
+
+	// Elements
+    // --------------------------------------------------------------------
+    &__title {
+    	color: $my-red;
+		font-size: $about-me-title-font-size;
+		font-weight: 900;
+		text-align: center;
+    }
+
+    &__description {
+    	color: $my-blue;
+		text-align: justify;
+		padding: 0 $double-gutter;
+
+		p {
+			margin: $half-gutter 0;
+			line-height: $about-me-gutter;
+		}
+    }
+}

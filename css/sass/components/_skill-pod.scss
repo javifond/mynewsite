@@ -1,0 +1,44 @@
+// ------------------------------------------------------------------------
+// Skill Pod Component
+//
+// Description: This component styles each skill pod.
+// ------------------------------------------------------------------------
+
+// Variables
+// ------------------------------------------------------------------------
+$skills-icon-pod-font-size: 3*$gutter;
+$skils-icon-ball-size: $double-gutter;
+// Block
+// ------------------------------------------------------------------------
+.skill-pod {
+	margin: $gutter 0;
+
+	// Elements
+	// --------------------------------------------------------------------
+
+	&__icon {
+		background-color: rgba($black, .6);
+		border-radius: 50%;
+		color: $white;
+		display: block;
+		font-size: $skills-icon-pod-font-size;
+		line-height: $skils-icon-ball-size;
+		height: $skils-icon-ball-size;
+		text-align: center;
+		width: $skils-icon-ball-size;
+		display: block;
+	}
+
+	&__list {
+		font-size: 1.3em;
+		text-align: center;
+
+		@include breakpoint($breakpoint-medium) {
+			font-size: $gutter;
+		}
+	}
+
+	&__list-item {
+		margin: $half-gutter 0;
+	}
+}

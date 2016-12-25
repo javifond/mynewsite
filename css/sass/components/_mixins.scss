@@ -1,0 +1,19 @@
+// ------------------------------------------------------------------------
+// Mixins
+// ------------------------------------------------------------------------
+
+@mixin breakpoint($bp) {
+	@media screen and (min-width: $bp) {
+		@content;
+	}
+}
+
+// Mixin
+// ------------------------------------------------------------------------
+@mixin responsive-font-big-to-small($val) {
+	font-size: $val;
+
+	@include breakpoint($breakpoint-medium) {
+		font-size: $val/2;
+	}
+}

@@ -1,0 +1,41 @@
+// ------------------------------------------------------------------------
+// Layout Component
+//
+// Description: This component is on charge to handle the sticky left side
+// panel at resolutions higher than 768px
+// ------------------------------------------------------------------------
+
+// Block
+// ------------------------------------------------------------------------
+.wrapper {
+	// background-color: $my-blue;
+	background-image: url('assets/bg.jpg');
+	color: $black;
+	display: flex;
+	flex-direction: column;
+
+	@include breakpoint($breakpoint-medium) {
+		flex-direction: row;
+	}
+
+	// Elements
+    // --------------------------------------------------------------------
+    &__left {
+		font-family: 'ls-regular' !important;
+
+		@include breakpoint($breakpoint-medium) {
+			flex: 1 1 40%;
+			margin: auto 0;
+		}
+    }
+
+    &__right {
+		font-family: 'indie' !important;
+		@include breakpoint($breakpoint-medium) {
+			flex: 1 1 60%;
+			max-height: 100vh;
+			overflow-y: scroll;
+			padding: 3em 4em;
+		}
+	}
+}

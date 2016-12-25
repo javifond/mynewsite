@@ -1,14 +1,21 @@
 // Global Variables
 // ------------------------------------------------------------------------
 
+// Breakpoints
+// ------------------------------------------------------------------------
+$breakpoint-medium: 768px !default;
+
 // Box Sizing
 // ------------------------------------------------------------------------
-$double-gutter: 2em;
-$gutter: 1em;
-$half-gutter: 0.5em;
+$double-gutter: 2em !default;
+$gutter: 1em !default;
+$half-gutter: 0.5em !default;
 
 // Colors
 // ------------------------------------------------------------------------
 $white: #ffffff;
 $black: #000000;
-$my-fav-blue: #00004c;
+$my-blue: #012e5d;
+$my-yellow: #fefabc;
+$my-sky-blue: #00b0d7;
+$my-red: #a21a1a;

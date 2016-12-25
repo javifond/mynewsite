@@ -1,0 +1,45 @@
+// ------------------------------------------------------------------------
+// Skills Component
+//
+// Description: This component will show a Header and several pods for
+// the different skills I've qualified to.
+// ------------------------------------------------------------------------
+
+// Variables
+// ------------------------------------------------------------------------
+$skills-title-font-size: 3em;
+
+// Block
+// ------------------------------------------------------------------------
+.skills {
+	color: $black;
+	padding: $gutter 0;
+
+	@include breakpoint($breakpoint-medium) {
+		background-color: $my-yellow;
+		box-shadow: $bs $bs $bs 0px rgba(0,0,0,0.75);
+		transform: rotate(-5deg);
+	}
+
+	// Elements
+	// --------------------------------------------------------------------
+	&__title {
+		font-size: $skills-title-font-size;
+		font-weight: 900;
+		margin: $half-gutter 0;
+		text-align: center;
+	}
+
+	&__container {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+
+		@include breakpoint($breakpoint-medium) {
+			align-items: baseline;
+			flex-direction: row;
+			justify-content: space-around;
+			padding: 0 $gutter;
+		}
+	}
+}
