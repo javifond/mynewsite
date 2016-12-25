@@ -19,17 +19,17 @@
 	}
 
 	// Elements
-    // --------------------------------------------------------------------
-    &__left {
+	// --------------------------------------------------------------------
+	&__left {
 		font-family: 'ls-regular' !important;
 
 		@include breakpoint($breakpoint-medium) {
 			flex: 1 1 40%;
 			margin: auto 0;
 		}
-    }
+	}
 
-    &__right {
+	&__right {
 		font-family: 'indie' !important;
 		@include breakpoint($breakpoint-medium) {
 			flex: 1 1 60%;

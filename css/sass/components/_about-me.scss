@@ -8,7 +8,7 @@
 // Variables
 // ------------------------------------------------------------------------
 $about-me-gutter: 1.5em;
-$about-me-title-font-size: 2em;
+$about-me-title-font-size: 3em;
 
 // Mixins
 // ------------------------------------------------------------------------
@@ -25,7 +25,6 @@ $about-me-title-font-size: 2em;
 .about-me {
 	@include responsive-font;
 	padding: $double-gutter 0;
-	margin-bottom: $double-gutter;
 
 	@include breakpoint($breakpoint-medium) {
 		background-color: $white;
@@ -36,16 +35,16 @@ $about-me-title-font-size: 2em;
 	}
 
 	// Elements
-    // --------------------------------------------------------------------
-    &__title {
-    	color: $my-red;
+	// --------------------------------------------------------------------
+	&__title {
+		color: $my-red;
 		font-size: $about-me-title-font-size;
 		font-weight: 900;
 		text-align: center;
-    }
+	}
 
-    &__description {
-    	color: $my-blue;
+	&__description {
+		color: $my-blue;
 		text-align: justify;
 		padding: 0 $double-gutter;
 
@@ -53,5 +52,5 @@ $about-me-title-font-size: 2em;
 			margin: $half-gutter 0;
 			line-height: $about-me-gutter;
 		}
-    }
+	}
 }

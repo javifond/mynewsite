@@ -28,28 +28,28 @@ $bs: 4px;
 	padding: $gutter;
 
 	// Elements
-    // --------------------------------------------------------------------
-    &__avatar {
-    	border-radius: 50%;
+	// --------------------------------------------------------------------
+	&__avatar {
+		border-radius: 50%;
 		margin: $half-gutter 0;
-    }
+	}
 
-    &__motto {
-    	@include responsive-font;
-    	font-weight: 900;
+	&__motto {
+		@include responsive-font;
+		font-weight: 900;
 		margin: $half-gutter 0;
 		text-align: center;
-    }
+	}
 
-    &__contact-buttons {
-    	display: flex;
-    	font-size: $double-gutter;
-    	justify-content: space-around;
+	&__contact-buttons {
+		display: flex;
+		font-size: $double-gutter;
+		justify-content: space-around;
 		margin: $half-gutter 0;
 		width: 50%;
-    }
+	}
 
-    &__location {
+	&__location {
 		margin: $half-gutter 0;
-    }
+	}
 }
