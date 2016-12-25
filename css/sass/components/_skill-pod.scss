@@ -6,16 +6,38 @@
 
 // Variables
 // ------------------------------------------------------------------------
-$skills-icon-pod-font-size: 3*$gutter;
+$skills-icon-pod-font-size: 4*$gutter;
 $skils-icon-ball-size: $double-gutter;
+$skills-font-size: 1.3em !default;
+$skills-padding: 4*$gutter $gutter;
+
+// Mixins
+// ------------------------------------------------------------------------
+@mixin post-it($rotate, $move, $color) {
+	@include breakpoint($breakpoint-medium) {
+		background-color: $color;
+		box-shadow: $bs $bs $bs 0px rgba($black, .75);
+		transform: rotate($rotate) translateX($move);
+	}
+}
+
 // Block
 // ------------------------------------------------------------------------
 .skill-pod {
-	margin: $gutter 0;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+
+	@include breakpoint($breakpoint-medium) {
+		flex-direction: row;
+		justify-content: space-around;
+		max-width: 70%;
+		padding: $skills-padding;
+		will-change: transform;
+	}
 
 	// Elements
 	// --------------------------------------------------------------------
-
 	&__icon {
 		background-color: rgba($black, .6);
 		border-radius: 50%;
@@ -30,15 +52,22 @@ $skils-icon-ball-size: $double-gutter;
 	}
 
 	&__list {
-		font-size: 1.3em;
-		text-align: center;
-
-		@include breakpoint($breakpoint-medium) {
-			font-size: $gutter;
-		}
+		font-size: $skills-font-size;
 	}
 
 	&__list-item {
 		margin: $half-gutter 0;
+	}
+
+	// Modifiers
+	// --------------------------------------------------------------------
+	&--social {
+		@include post-it(-2deg, $double-gutter,$my-yellow);
+	}
+	&--coding {
+		@include post-it(5deg, 6*$gutter, $pastel-blue);
+	}
+	&--organizational {
+		@include post-it(-3deg, 4*$gutter, $my-pink);
 	}
 }

@@ -9,22 +9,19 @@
 // ------------------------------------------------------------------------
 $about-me-gutter: 1.5em;
 $about-me-title-font-size: 3em;
+$about-me-font-size: 1.3*$gutter;
 
 // Mixins
 // ------------------------------------------------------------------------
 @mixin responsive-font() {
-	font-size: $gutter;
-
-	@include breakpoint($breakpoint-medium) {
-		font-size: 1.3*$gutter;
-	}
+	font-size: $about-me-font-size;
 }
 
 // Block
 // ------------------------------------------------------------------------
 .about-me {
 	@include responsive-font;
-	padding: $double-gutter 0;
+	padding: $gutter 0;
 
 	@include breakpoint($breakpoint-medium) {
 		background-color: $white;

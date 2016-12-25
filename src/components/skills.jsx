@@ -6,7 +6,7 @@ module.exports = React.createClass({
 	return <section className="skills">
 			<h2 className="skills__title">My Skills</h2>
 			<div className="skills__container">
-				<article className="skill-pod">
+				<article className="skill-pod skill-pod--social">
 					<h3><i className="skill-pod__icon icon-users"></i></h3>
 					<ul className="skill-pod__list">
 						<li className="skill-pod__list-item">Easy Going</li>
@@ -15,7 +15,7 @@ module.exports = React.createClass({
 						<li className="skill-pod__list-item">Punctual</li>
 					</ul>
 				</article>
-				<article className="skill-pod">
+				<article className="skill-pod skill-pod--coding">
 					<h3><i className="skill-pod__icon icon-laptop"></i></h3>
 					<ul className="skill-pod__list">
 						<li className="skill-pod__list-item">Javascript</li>
@@ -23,11 +23,11 @@ module.exports = React.createClass({
 						<li className="skill-pod__list-item">CSS3</li>
 					</ul>
 				</article>
-				<article className="skill-pod">
+				<article className="skill-pod skill-pod--organizational">
 					<h3><i className="skill-pod__icon icon-linode"></i></h3>
 					<ul className="skill-pod__list">
 						<li className="skill-pod__list-item">Leadership</li>
-						<li className="skill-pod__list-item">Agile Methodology</li>
+						<li className="skill-pod__list-item">Agile Methods</li>
 					</ul>
 				</article>
 			</div>
