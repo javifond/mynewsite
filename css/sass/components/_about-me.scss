@@ -21,14 +21,17 @@ $about-me-font-size: 1.3*$gutter;
 // ------------------------------------------------------------------------
 .about-me {
 	@include responsive-font;
+	background-color: $white;
+	background-image: linear-gradient(to bottom, white 20px, rgba($my-sky-blue, 0.60) 1px);
+	background-size: 100% 21px;
+	box-shadow: $bs $bs $bs 0px rgba($black, .75);
+	margin: $gutter;
 	padding: $gutter 0;
+	transform: rotate(1deg);
+	will-change: transform;
 
 	@include breakpoint($breakpoint-medium) {
-		background-color: $white;
-		background-image: linear-gradient(to bottom, white 20px, rgba($my-sky-blue, 0.60) 1px);
-		background-size: 100% 21px;
-		box-shadow: $bs $bs $bs 0px rgba($black, .75);
-		transform: rotate(1deg);
+		margin: 0;
 	}
 
 	// Elements

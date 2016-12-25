@@ -14,9 +14,11 @@ $skills-padding: 4*$gutter $gutter;
 // Mixins
 // ------------------------------------------------------------------------
 @mixin post-it($rotate, $move, $color) {
+	background-color: $color;
+	box-shadow: $bs $bs $bs 0px rgba($black, .75);
+	transform: rotate($rotate/2);
+
 	@include breakpoint($breakpoint-medium) {
-		background-color: $color;
-		box-shadow: $bs $bs $bs 0px rgba($black, .75);
 		transform: rotate($rotate) translateX($move);
 	}
 }
@@ -27,12 +29,14 @@ $skills-padding: 4*$gutter $gutter;
 	align-items: center;
 	display: flex;
 	flex-direction: column;
+	margin: $gutter;
+	padding: $skills-padding;
 
 	@include breakpoint($breakpoint-medium) {
 		flex-direction: row;
 		justify-content: space-around;
 		max-width: 70%;
-		padding: $skills-padding;
+		margin: 0;
 		will-change: transform;
 	}
 

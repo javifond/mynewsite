@@ -11,8 +11,9 @@ $photo-title-font-size: 2em;
 // Mixins
 // ------------------------------------------------------------------------
 @mixin post-it($rotate, $move) {
+	box-shadow: $bs $bs $bs 0px rgba($black, .75);
+	transform: rotate($rotate/2);
 	@include breakpoint($breakpoint-medium) {
-		box-shadow: $bs $bs $bs 0px rgba($black, .75);
 		transform: rotate($rotate) translateX($move);
 	}
 }
@@ -23,11 +24,13 @@ $photo-title-font-size: 2em;
 	background-color: $dark-white;
 	display: flex;
 	flex-direction: column;
+	margin: $gutter;
 	padding: $double-gutter;
 	position: relative;
 
 	@include breakpoint($breakpoint-medium) {
 		max-width: 480px;
+		margin: 0;
 		will-change: transform;
 	}
 
@@ -42,7 +45,7 @@ $photo-title-font-size: 2em;
 		text-align: center;
 	}
 	&__img {
-
+		width: 100%;
 	}
 	// Modifiers
 	// --------------------------------------------------------------------
