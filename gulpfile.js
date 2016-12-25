@@ -23,7 +23,7 @@ const paths = {
 const notify = function (error) {
   const message = 'In: ',
         title = 'Error: ',
-        file;
+        file = null;
 
   if (error.description) {
     title += error.description;
