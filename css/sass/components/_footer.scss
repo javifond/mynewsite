@@ -1,0 +1,20 @@
+// ------------------------------------------------------------------------
+// Footer Component
+//
+// Description: This component will show a footer with a my name.
+// ------------------------------------------------------------------------
+
+// Block
+// ------------------------------------------------------------------------
+.footer {
+	color: $dark-white;
+	padding-top: 3*$gutter;
+	padding-bottom: $half-gutter;
+
+	// Elements
+	// --------------------------------------------------------------------
+	&__title {
+		font-weight: 900;
+		text-align: center;
+	}
+}

@@ -4,6 +4,7 @@ var FrontPage = require('./frontpage');
 var AboutMe = require('./aboutme');
 var Skills = require('./skills');
 var Like = require('./like');
+var Footer = require('./footer');
 
 module.exports = React.createClass({
 	render: function() {
@@ -15,6 +16,7 @@ module.exports = React.createClass({
 			<AboutMe/>
 			<Skills/>
 			<Like/>
+			<Footer/>
 		</section>
 	</div>
 	}
