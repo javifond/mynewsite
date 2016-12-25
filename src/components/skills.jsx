@@ -4,8 +4,8 @@ module.exports = React.createClass({
 	render: function () {
 
 	return <section className="skills">
-			<h2 className="skills__title">My Skills</h2>
-			<div className="skills__container">
+			<h2 className="skills__title">My Skills are...</h2>
+			<div>
 				<article className="skill-pod skill-pod--social">
 					<h3><i className="skill-pod__icon icon-users"></i></h3>
 					<ul className="skill-pod__list">

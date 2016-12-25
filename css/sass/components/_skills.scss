@@ -18,14 +18,10 @@ $skills-title-font-size: 3*$gutter;
 	// Elements
 	// --------------------------------------------------------------------
 	&__title {
-		color: $my-green;
+		color: $my-blue;
 		font-size: $skills-title-font-size;
 		font-weight: 900;
 		margin: $half-gutter 0;
 		text-align: center;
-	}
-
-	&__container {
-
 	}
 }
